@@ -2,24 +2,34 @@
 
 # This class is for ApplicationController
 class ApplicationController < Sinatra::Base
+  register Sinatra::BasicAuth
 
   configure do
     enable :sessions
     set :views, 'app/views'
+    authorize do |username, password|
+      username == 'admin' && password == 'admin'
+    end
   end
 
   get '/' do
     erb :index
   end
 
-  get '/movies' do
-    @movies = Movie.all
-    erb :movies
+  protect do
+    get '/movies' do
+      @movies = Movie.all
+      erb :movies
+    end
   end
 
   post '/movies' do
-    Movie.create(params)
-    redirect '/movies'
+    @movies = Movie.new(params)
+    if @movies.save
+      redirect '/movies'
+    else
+      erb :errors
+    end
   end
 
   get '/movies/:id/edit' do
@@ -37,4 +47,5 @@ class ApplicationController < Sinatra::Base
     Movie.find(params[:id]).destroy
     redirect '/movies'
   end
+
 end
