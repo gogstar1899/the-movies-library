@@ -22,3 +22,19 @@
   <input type="text" id="main_actor" name="main_actor">
   <input type="submit" value="Add Movie">
 </form>
+
+<form action="/movies/search" method="get">
+  <label for="search">Search:</label>
+  <input type="text" id="search" name="search">
+  <input type="submit" value="Search">
+</form>
+
+<form action="/movies/sort" method="get">
+  <select name="sort">
+    <option value="year">Year</option>
+    <option value="name">Name</option>
+    <option value="director">Director</option>
+    <option value="main_actor">Main Actor</option>
+  </select>
+  <input type="submit" value="Sort">
+</form>
