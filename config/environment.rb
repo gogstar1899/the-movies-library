@@ -7,7 +7,8 @@ require 'rake'
 require 'require_all'
 require 'pg'
 require 'rack-flash'
+require 'json'
 
-set :database, {adapter: "postgresql", database: "movies"}
+set :database, { adapter: 'postgresql', database: 'movies' }
 
 require_all 'app'

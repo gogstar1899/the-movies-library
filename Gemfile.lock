@@ -89,6 +89,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (~> 7.1, >= 7.1.2)
+  json
   pg (~> 1.5, >= 1.5.4)
   pry (~> 0.14.2)
   rack-flash3
