@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'activerecord', '~> 7.1', '>= 7.1.2'
+gem 'json'
 gem 'pg', '~> 1.5', '>= 1.5.4'
 gem 'pry', '~> 0.14.2'
 gem 'rack-flash3'
