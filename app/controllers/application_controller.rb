@@ -32,6 +32,7 @@ class ApplicationController < Sinatra::Base
         @movies.to_json
         # redirect '/movies'
       else
+        status 422
         { errors: @movies.errors.full_messages }.to_json
         # erb :errors
       end
